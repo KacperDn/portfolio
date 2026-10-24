@@ -23,5 +23,6 @@ useLenis()
       <AboutSection />
       <JourneySection />
     </StoryFlow>
+    <ProjectsSection />
   </main>
 </template>
