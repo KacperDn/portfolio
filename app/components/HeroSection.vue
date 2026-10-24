@@ -10,6 +10,7 @@ useHeroMotion({ hero, mask, subline })
 
 <template>
   <section id="top" ref="hero" class="hero" aria-labelledby="hero-title">
+    <TechCloud />
     <h1 id="hero-title" class="hero__name" aria-label="KacperDn">
       <span ref="mask" class="hero__mask" aria-hidden="true">
         <span v-for="(letter, i) in letters" :key="i" class="hero__char"><span class="hero__glyph">{{ letter }}</span></span>
