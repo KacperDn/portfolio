@@ -19,5 +19,9 @@ useLenis()
   <a class="skip-link" href="#main">Skip to content</a>
   <main id="main">
     <HeroSection />
+    <StoryFlow>
+      <AboutSection />
+      <JourneySection />
+    </StoryFlow>
   </main>
 </template>
