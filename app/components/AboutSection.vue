@@ -10,7 +10,7 @@ const rows = [
   },
   {
     title: 'Sites',
-    text: 'I also build sites on CMSs, mostly WordPress, for real clients, shipped and live. My own apps, like Moneta, are how I learn how whole systems fit together.'
+    text: 'I also build sites on CMSs, mostly WordPress. My own apps, like Moneta, are how I learn how whole systems fit together.'
   },
   {
     title: 'AI',
