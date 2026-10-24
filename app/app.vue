@@ -30,6 +30,7 @@ useScrollMotion()
   <SiteHeader />
   <main id="main">
     <HeroSection />
+    <StackMarquee />
     <AboutSection />
     <ProjectsSection />
     <ContactSection />
