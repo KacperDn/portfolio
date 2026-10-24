@@ -146,8 +146,8 @@ onBeforeUnmount(() => mm?.revert())
 }
 
 .tech__tile:hover {
-  border-color: var(--ember);
-  color: var(--ember);
+  border-color: var(--accent);
+  color: var(--accent);
 }
 
 .tech__name {
@@ -157,7 +157,7 @@ onBeforeUnmount(() => mm?.revert())
   font-family: var(--font-display);
   font-size: 0.8125rem;
   font-weight: 500;
-  color: var(--ember);
+  color: var(--accent);
   opacity: 0;
   transition: opacity 0.25s;
 }
@@ -168,11 +168,10 @@ onBeforeUnmount(() => mm?.revert())
 
 @media (max-width: 63.99rem) {
   .tech {
-    top: calc(var(--header-height) + 1.75rem);
-    left: var(--gutter);
-    right: auto;
-    bottom: auto;
-    width: min(34rem, calc(100% - 2 * var(--gutter)));
+    position: relative;
+    inset: auto;
+    width: min(34rem, 100%);
+    margin: 1.75rem 0 clamp(2rem, 7vw, 3.5rem);
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 0.75rem;
@@ -189,6 +188,12 @@ onBeforeUnmount(() => mm?.revert())
 
   .tech__name {
     display: none;
+  }
+}
+
+@media (max-width: 47.99rem) {
+  .tech {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 

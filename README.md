@@ -1,6 +1,6 @@
 # Portfolio
 
-Dark, raw portfolio: graphite background, one ember accent, hard rules and a 12-column grid. Left column holds the section title, the right one the content.
+Dark, raw portfolio: deep teal-black background, one aqua accent, hard rules and a 12-column grid. Left column holds the section title, the right one the content.
 
 Nuxt 4, TypeScript strict, GSAP + ScrollTrigger, Lenis. Fonts are self-hosted (`@fontsource-variable`), nothing is loaded from a CDN at runtime.
 

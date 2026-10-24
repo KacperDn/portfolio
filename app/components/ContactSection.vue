@@ -53,7 +53,7 @@ const links = contactLinks.filter((link) => link.href)
 }
 
 .contact a {
-  background: linear-gradient(var(--ember), var(--ember)) no-repeat left / 0% 100%;
+  background: linear-gradient(var(--accent), var(--accent)) no-repeat left / 0% 100%;
   text-decoration: none;
   transition:
     background-size 0.4s cubic-bezier(0.2, 0.7, 0.2, 1),

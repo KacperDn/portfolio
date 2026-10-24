@@ -141,9 +141,8 @@ onBeforeUnmount(() => mm?.revert())
   border-top: 1px solid var(--line);
   padding: 0.4rem 0 0.2rem;
   font-family: var(--font-display);
-  font-size: clamp(3rem, 8vw, 7rem);
+  font-size: clamp(2.5rem, 6vw, 5.5rem);
   font-weight: 800;
-  font-stretch: 75%;
   line-height: 1;
   text-transform: uppercase;
   cursor: grab;
@@ -172,6 +171,6 @@ onBeforeUnmount(() => mm?.revert())
 }
 
 .marquee__sep {
-  color: var(--ember);
+  color: var(--accent);
 }
 </style>

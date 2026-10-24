@@ -3,7 +3,7 @@ export default defineNuxtConfig({
   devtools: { enabled: false },
   typescript: { strict: true },
   css: [
-    '@fontsource-variable/bricolage-grotesque/wdth.css',
+    '@fontsource-variable/geist/wght.css',
     '@fontsource-variable/newsreader/wght.css',
     'lenis/dist/lenis.css',
     '~/assets/css/tokens.css',
@@ -15,7 +15,7 @@ export default defineNuxtConfig({
       htmlAttrs: { lang: 'en' },
       meta: [
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-        { name: 'theme-color', content: '#0D0D0E' },
+        { name: 'theme-color', content: '#091011' },
         { name: 'color-scheme', content: 'dark' }
       ],
       link: [{ rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' }]

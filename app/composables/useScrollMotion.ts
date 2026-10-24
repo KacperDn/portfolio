@@ -14,13 +14,13 @@ export function useScrollMotion() {
   onMounted(() => {
     mm = gsap.matchMedia()
     mm.add('(prefers-reduced-motion: no-preference)', () => {
-      const ember = cssColor('--ember')
+      const accent = cssColor('--accent')
       const line = cssColor('--line')
 
       for (const el of gsap.utils.toArray<HTMLElement>('.rule-top')) {
         gsap.fromTo(
           el,
-          { '--rule': 0, '--rule-color': ember },
+          { '--rule': 0, '--rule-color': accent },
           {
             '--rule': 1,
             '--rule-color': line,

@@ -49,14 +49,14 @@ p + p {
 
 a {
   color: var(--text);
-  text-decoration-color: var(--ember);
+  text-decoration-color: var(--accent);
   text-decoration-thickness: 2px;
   text-underline-offset: 0.2em;
   transition: color 0.2s;
 }
 
 a:hover {
-  color: var(--ember);
+  color: var(--accent);
 }
 
 :focus-visible {
@@ -65,7 +65,7 @@ a:hover {
 }
 
 ::selection {
-  background: var(--ember);
+  background: var(--accent);
   color: var(--ink);
 }
 
@@ -75,7 +75,7 @@ a:hover {
   left: var(--gutter);
   z-index: 20;
   padding: 0.5rem 0.9rem;
-  background: var(--ember);
+  background: var(--accent);
   color: var(--ink);
   font-family: var(--font-display);
   font-weight: 600;
