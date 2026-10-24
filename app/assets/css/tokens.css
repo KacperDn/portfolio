@@ -1,12 +1,10 @@
 :root {
-  --midnight: #14122b;
-  --surface: #1e1b3a;
-  --frost: #eceaf4;
-  --signal: #5b8cff;
-  --breach: #ff5c7a;
-
-  --frost-dim: color-mix(in srgb, var(--frost) 70%, var(--midnight));
-  --rule: color-mix(in srgb, var(--frost) 16%, transparent);
+  --ink: #0d0d0e;
+  --panel: #151517;
+  --line: #2c2c30;
+  --text: #e9e9e6;
+  --dim: #a0a0a4;
+  --ember: #ff5a1f;
 
   --font-display: 'Bricolage Grotesque Variable', system-ui, sans-serif;
   --font-body: 'Newsreader Variable', Georgia, serif;
@@ -16,13 +14,21 @@
   --step-1: 1.375rem;
   --step-2: 1.875rem;
   --step-3: clamp(2.25rem, 1.6rem + 2.4vw, 3.25rem);
-  --step-hero: clamp(4.5rem, 1.5rem + 16vw, 13rem);
+  --step-4: clamp(1.75rem, 0.8rem + 3.2vw, 3.25rem);
+  --step-hero: clamp(3.75rem, 14vw, 14rem);
 
   --leading-body: 1.65;
-  --leading-display: 1.02;
+  --leading-display: 1;
   --measure: 65ch;
 
-  --gutter: clamp(1.25rem, 5vw, 5rem);
-  --section-gap: clamp(7rem, 16vw, 14rem);
-  --focus-ring: 2px solid var(--signal);
+  --gutter: clamp(1.25rem, 4vw, 3rem);
+  --section-gap: clamp(4.5rem, 9vw, 8rem);
+  --header-height: 3.5rem;
+  --focus-ring: 2px solid var(--ember);
+}
+
+@media (max-width: 63.99rem) {
+  :root {
+    --step-hero: calc((100vw - 2 * var(--gutter)) / 3.75);
+  }
 }

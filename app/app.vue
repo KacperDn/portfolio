@@ -1,9 +1,9 @@
 <script setup lang="ts">
 useSeoMeta({
-  title: 'Kacper | Fullstack developer',
+  title: 'KacperDn | Fullstack developer',
   description:
     'Fullstack developer. I build backends in Symfony and interfaces in Vue.',
-  ogTitle: 'Kacper | Fullstack developer',
+  ogTitle: 'KacperDn | Fullstack developer',
   ogDescription:
     'Fullstack developer. I build backends in Symfony and interfaces in Vue.',
   ogImage: '/og.png',
@@ -17,12 +17,10 @@ useLenis()
 <template>
   <NuxtRouteAnnouncer />
   <a class="skip-link" href="#main">Skip to content</a>
+  <SiteHeader />
   <main id="main">
     <HeroSection />
-    <StoryFlow>
-      <AboutSection />
-      <JourneySection />
-    </StoryFlow>
+    <AboutSection />
     <ProjectsSection />
     <ContactSection />
   </main>

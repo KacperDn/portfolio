@@ -1,56 +1,76 @@
 <script setup lang="ts">
 import { contactLinks } from '~/data/contact'
+
+const links = contactLinks.filter((link) => link.href)
 </script>
 
 <template>
-  <section id="contact" class="section" aria-labelledby="contact-title">
-    <div class="split">
-      <div class="split__text">
-        <h2 id="contact-title">Contact</h2>
-        <p>Email is the quickest way to reach me.</p>
-        <dl class="contact">
-          <div v-for="link in contactLinks" :key="link.label" class="contact__row">
-            <dt>{{ link.label }}</dt>
-            <dd>
-              <span v-if="link.href === 'TODO'">{{ link.text }}</span>
-              <a v-else :href="link.href" rel="noopener">{{ link.text }}</a>
-            </dd>
-          </div>
-        </dl>
-      </div>
+  <section id="contact" class="sheet rule-top" aria-labelledby="contact-title">
+    <h2 id="contact-title" class="sheet__label" data-mask>Contact</h2>
+    <div class="sheet__body">
+      <dl class="contact">
+        <div v-for="link in links" :key="link.label" class="contact__row rule-top">
+          <dt>{{ link.label }}</dt>
+          <dd>
+            <a :href="link.href" rel="noopener">{{ link.text }}</a>
+          </dd>
+        </div>
+      </dl>
     </div>
   </section>
 </template>
 
 <style scoped>
 .contact {
-  margin: 2.5rem 0 0;
+  margin: 0;
 }
 
 .contact__row {
   display: grid;
-  grid-template-columns: 6rem 1fr;
-  align-items: baseline;
-  padding: 0.75rem 0;
-  border-top: 1px solid var(--rule);
+  gap: 0.25rem 2rem;
+  padding: 1.25rem 0;
 }
 
 .contact__row:last-child {
-  border-bottom: 1px solid var(--rule);
+  border-bottom: 1px solid var(--line);
 }
 
 .contact dt {
   font-family: var(--font-display);
   font-size: var(--step--1);
-  color: var(--frost-dim);
+  font-weight: 500;
+  color: var(--dim);
 }
 
 .contact dd {
   margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--step-4);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  overflow-wrap: anywhere;
 }
 
 .contact a {
-  display: inline-block;
-  padding: 0.25rem 0;
+  background: linear-gradient(var(--ember), var(--ember)) no-repeat left / 0% 100%;
+  text-decoration: none;
+  transition:
+    background-size 0.4s cubic-bezier(0.2, 0.7, 0.2, 1),
+    color 0.4s;
+}
+
+.contact a:hover,
+.contact a:focus-visible {
+  background-color: transparent;
+  background-size: 100% 100%;
+  color: var(--ink);
+}
+
+@media (min-width: 48rem) {
+  .contact__row {
+    grid-template-columns: 8rem 1fr;
+    align-items: baseline;
+  }
 }
 </style>

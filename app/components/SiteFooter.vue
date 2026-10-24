@@ -4,16 +4,15 @@ const year = new Date().getFullYear()
 
 <template>
   <footer class="footer">
-    <p>© {{ year }} Kacper</p>
+    <p>© {{ year }} KacperDn</p>
   </footer>
 </template>
 
 <style scoped>
 .footer {
-  margin-top: var(--section-gap);
-  padding: 2rem var(--gutter);
-  border-top: 1px solid var(--rule);
+  padding: 1.5rem var(--gutter);
+  border-top: 1px solid var(--line);
   font-size: var(--step--1);
-  color: var(--frost-dim);
+  color: var(--dim);
 }
 </style>

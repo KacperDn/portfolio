@@ -5,15 +5,15 @@
 }
 
 html {
-  background: var(--midnight);
+  background: var(--ink);
   -webkit-text-size-adjust: 100%;
 }
 
 body {
   margin: 0;
   min-height: 100svh;
-  background: var(--midnight);
-  color: var(--frost);
+  background: var(--ink);
+  color: var(--text);
   font-family: var(--font-body);
   font-size: var(--step-0);
   line-height: var(--leading-body);
@@ -27,14 +27,14 @@ h2,
 h3 {
   margin: 0;
   font-family: var(--font-display);
-  font-weight: 600;
+  font-weight: 700;
   line-height: var(--leading-display);
   text-wrap: balance;
 }
 
 h2 {
   font-size: var(--step-3);
-  letter-spacing: -0.015em;
+  letter-spacing: -0.02em;
 }
 
 p {
@@ -48,13 +48,15 @@ p + p {
 }
 
 a {
-  color: var(--signal);
-  text-decoration-thickness: 1px;
+  color: var(--text);
+  text-decoration-color: var(--ember);
+  text-decoration-thickness: 2px;
   text-underline-offset: 0.2em;
+  transition: color 0.2s;
 }
 
 a:hover {
-  text-decoration-thickness: 2px;
+  color: var(--ember);
 }
 
 :focus-visible {
@@ -63,19 +65,21 @@ a:hover {
 }
 
 ::selection {
-  background: var(--signal);
-  color: var(--midnight);
+  background: var(--ember);
+  color: var(--ink);
 }
 
 .skip-link {
   position: absolute;
   top: 0;
   left: var(--gutter);
-  z-index: 10;
+  z-index: 20;
   padding: 0.5rem 0.9rem;
-  background: var(--surface);
-  color: var(--frost);
+  background: var(--ember);
+  color: var(--ink);
   font-family: var(--font-display);
+  font-weight: 600;
+  text-decoration: none;
   transform: translateY(-120%);
 }
 

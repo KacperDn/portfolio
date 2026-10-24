@@ -7,10 +7,10 @@ const font = readFileSync(
 
 const html = `<style>
 @font-face { font-family: Bricolage; src: url(data:font/woff2;base64,${font}); font-weight: 200 800; font-stretch: 75% 100%; }
-body { margin: 0; width: 1200px; height: 630px; box-sizing: border-box; padding: 80px; display: flex; flex-direction: column; justify-content: flex-end; background: #14122b; color: #eceaf4; font-family: Bricolage; }
-h1 { margin: 0; font-size: 220px; line-height: 1; font-weight: 700; letter-spacing: -0.04em; }
-p { margin: 24px 0 0; font-size: 34px; color: #b8b5cc; }
-</style><h1>Kacper</h1><p>Fullstack developer. Symfony and Vue.</p>`
+body { margin: 0; width: 1200px; height: 630px; box-sizing: border-box; padding: 64px 72px; display: flex; flex-direction: column; justify-content: flex-end; background: #0d0d0e; color: #e9e9e6; font-family: Bricolage; }
+h1 { margin: 0 0 40px -6px; font-size: 250px; line-height: 0.85; font-weight: 800; font-stretch: 75%; letter-spacing: -0.02em; }
+p { margin: 0; padding-top: 24px; border-top: 1px solid #2c2c30; font-size: 34px; color: #a0a0a4; }
+</style><h1>KacperDn</h1><p>Fullstack developer. Symfony and Vue.</p>`
 
 const browser = await chromium.launch()
 const page = await browser.newPage({ viewport: { width: 1200, height: 630 } })

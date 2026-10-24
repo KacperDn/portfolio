@@ -1,18 +1,11 @@
-<script setup lang="ts">
-const host = useTemplateRef<HTMLElement>('host')
-const canvas = useTemplateRef<HTMLCanvasElement>('canvas')
-const label = useTemplateRef<HTMLElement>('label')
-
-const { ready } = useParticleField({ host, canvas, label })
-</script>
-
 <template>
-  <section ref="host" class="hero" aria-labelledby="hero-title">
-    <canvas ref="canvas" class="hero__field" aria-hidden="true" />
-    <h1 id="hero-title" ref="label" class="hero__name" :class="{ 'hero__name--field': ready }">Kacper</h1>
-    <p class="hero__subline">
-      Fullstack developer. I build backends in Symfony and interfaces in Vue.
-    </p>
+  <section id="top" class="hero" aria-labelledby="hero-title">
+    <h1 id="hero-title" class="hero__name">KacperDn</h1>
+    <div class="hero__row">
+      <p class="hero__subline">
+        Fullstack developer. I build backends in Symfony and interfaces in Vue.
+      </p>
+    </div>
   </section>
 </template>
 
@@ -22,34 +15,27 @@ const { ready } = useParticleField({ host, canvas, label })
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  min-height: 100svh;
-  padding: 0 var(--gutter) clamp(3rem, 8vh, 6rem);
-}
-
-.hero__field {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
+  min-height: 88svh;
+  padding: var(--header-height) var(--gutter) 0;
 }
 
 .hero__name {
-  position: relative;
+  margin: 0 0 clamp(1.5rem, 4vw, 3rem) -0.04em;
   font-size: var(--step-hero);
-  font-weight: 700;
-  letter-spacing: -0.04em;
-  margin-left: -0.05em;
+  font-weight: 800;
+  font-stretch: 75%;
+  line-height: 0.82;
+  letter-spacing: -0.02em;
 }
 
-.hero__name--field {
-  color: transparent;
+.hero__row {
+  padding: 1.5rem 0 2rem;
+  border-top: 1px solid var(--line);
 }
 
 .hero__subline {
-  position: relative;
-  margin-top: 2rem;
-  font-size: var(--step-1);
-  color: var(--frost-dim);
+  font-size: var(--step-2);
+  line-height: 1.3;
+  max-width: 32ch;
 }
 </style>

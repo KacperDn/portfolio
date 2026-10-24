@@ -5,9 +5,9 @@ defineProps<{ project: Project }>()
 </script>
 
 <template>
-  <article class="stop split">
-    <div class="split__text">
-      <h3>{{ project.name }}</h3>
+  <article class="stop rule-top">
+    <div class="stop__text">
+      <h3 data-mask>{{ project.name }}</h3>
       <p>{{ project.summary }}</p>
       <p v-if="project.detail">{{ project.detail }}</p>
       <ul v-if="project.links.length" class="stop__links">
@@ -16,16 +16,19 @@ defineProps<{ project: Project }>()
         </li>
       </ul>
     </div>
-    <DeviceFrame v-if="project.media" :device="project.device" :address="project.links[0]?.label">
+    <DeviceFrame :address="project.address">
       <ProjectVideo :media="project.media" />
     </DeviceFrame>
-    <div v-else class="stop__slot">
-      <p>Poster and recording go here.</p>
-    </div>
   </article>
 </template>
 
 <style scoped>
+.stop {
+  display: grid;
+  gap: 1.5rem 2rem;
+  padding-top: 1.5rem;
+}
+
 .stop h3 {
   margin-bottom: 1rem;
   font-size: var(--step-2);
@@ -41,14 +44,11 @@ defineProps<{ project: Project }>()
   list-style: none;
 }
 
-.stop__slot {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  max-width: 46rem;
-  aspect-ratio: 16 / 10;
-  padding: 2rem;
-  border: 1px dashed var(--rule);
-  color: var(--frost-dim);
+
+@media (min-width: 60rem) {
+  .stop {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr);
+    align-items: start;
+  }
 }
 </style>

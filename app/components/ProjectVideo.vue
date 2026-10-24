@@ -73,6 +73,6 @@ watch([inView, reduced], sync)
   width: 100%;
   height: 100%;
   object-fit: cover;
-  background: var(--surface);
+  background: var(--panel);
 }
 </style>
