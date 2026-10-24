@@ -38,9 +38,8 @@ useHeroMotion({ hero, mask, subline })
   margin: 0 0 clamp(1.5rem, 4vw, 3rem) -0.04em;
   font-size: var(--step-hero);
   font-weight: 800;
-  font-stretch: 75%;
   line-height: 0.82;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.03em;
   pointer-events: none;
 }
 
@@ -71,6 +70,17 @@ useHeroMotion({ hero, mask, subline })
   font-size: var(--step-2);
   line-height: 1.3;
   max-width: 32ch;
+}
+
+@media (max-width: 63.99rem) {
+  .hero {
+    min-height: 100svh;
+    justify-content: flex-start;
+  }
+
+  .hero__name {
+    margin-top: auto;
+  }
 }
 
 @media (prefers-reduced-motion: no-preference) {
