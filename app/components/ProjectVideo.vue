@@ -56,7 +56,7 @@ watch([inView, reduced], sync)
     loop
     playsinline
     preload="none"
-    :poster="media.poster"
+    :poster="loaded ? media.poster : undefined"
     :controls="reduced"
     :aria-label="media.description"
   >

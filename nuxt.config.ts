@@ -2,6 +2,14 @@ export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: false },
   typescript: { strict: true },
+  hooks: {
+    /** Videos and posters load on demand; the default prefetch hints would fetch them all on page load. */
+    'build:manifest': (manifest) => {
+      for (const asset of Object.values(manifest) as { resourceType?: string; prefetch?: boolean }[]) {
+        if (asset.resourceType === 'video' || asset.resourceType === 'image') asset.prefetch = false
+      }
+    }
+  },
   css: [
     '@fontsource-variable/geist/wght.css',
     '@fontsource-variable/newsreader/wght.css',
