@@ -4,7 +4,6 @@ import { gsap } from 'gsap'
 interface HeroRefs {
   hero: Ref<HTMLElement | null>
   mask: Ref<HTMLElement | null>
-  subline: Ref<HTMLElement | null>
 }
 
 const MAX_WEIGHT = 800
@@ -15,7 +14,7 @@ const MIN_WEIGHT = 200
  * then the cursor thins the letters near it and scrolling thins and lifts
  * them one after another. Skipped under reduced motion.
  */
-export function useHeroMotion({ hero, mask, subline }: HeroRefs) {
+export function useHeroMotion({ hero, mask }: HeroRefs) {
   let mm: gsap.MatchMedia | undefined
 
   onMounted(() => {
@@ -83,7 +82,6 @@ export function useHeroMotion({ hero, mask, subline }: HeroRefs) {
               { yPercent: 110, opacity: 1, fontWeight: MIN_WEIGHT },
               { yPercent: 0, fontWeight: MAX_WEIGHT, duration: 1.2, ease: 'expo.out', stagger: 0.07 }
             )
-            .fromTo(subline.value, { opacity: 0, y: 28 }, { opacity: 1, y: 0, duration: 0.9, ease: 'power3.out' }, '-=0.7')
 
           gsap.fromTo(
             glyphs,

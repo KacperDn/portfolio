@@ -3,9 +3,8 @@ const letters = Array.from('KacperDn')
 
 const hero = useTemplateRef<HTMLElement>('hero')
 const mask = useTemplateRef<HTMLElement>('mask')
-const subline = useTemplateRef<HTMLElement>('subline')
 
-useHeroMotion({ hero, mask, subline })
+useHeroMotion({ hero, mask })
 </script>
 
 <template>
@@ -17,7 +16,7 @@ useHeroMotion({ hero, mask, subline })
       </span>
     </h1>
     <div class="hero__row">
-      <p ref="subline" class="hero__subline">
+      <p class="hero__subline">
         Fullstack developer. I build backends in Symfony and interfaces in Vue.
       </p>
     </div>
@@ -85,10 +84,6 @@ useHeroMotion({ hero, mask, subline })
 
 @media (prefers-reduced-motion: no-preference) {
   .js .hero__char {
-    opacity: 0;
-  }
-
-  .js .hero__subline {
     opacity: 0;
   }
 }
