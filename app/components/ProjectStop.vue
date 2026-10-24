@@ -12,7 +12,9 @@ defineProps<{ project: Project }>()
       <p v-if="project.detail">{{ project.detail }}</p>
       <ul v-if="project.links.length" class="stop__links">
         <li v-for="link in project.links" :key="link.href">
-          <a :href="link.href" rel="noopener">{{ link.label }}</a>
+          <a :href="link.href" target="_blank" rel="noopener noreferrer">
+            {{ link.label }}<span class="sr-only"> (opens in a new tab)</span>
+          </a>
         </li>
       </ul>
     </div>
