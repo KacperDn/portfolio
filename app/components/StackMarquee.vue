@@ -127,7 +127,7 @@ onBeforeUnmount(() => mm?.revert())
     <div ref="track" class="marquee__track">
       <div v-for="copy in 2" :key="copy" class="marquee__group">
         <template v-for="word in words" :key="word">
-          <span class="marquee__word">{{ word }}</span>
+          <span class="marquee__word" :data-word="word" />
           <span class="marquee__sep">/</span>
         </template>
       </div>
@@ -163,6 +163,10 @@ onBeforeUnmount(() => mm?.revert())
 .marquee__group {
   display: flex;
   flex-shrink: 0;
+}
+
+.marquee__word::before {
+  content: attr(data-word);
 }
 
 .marquee__word {

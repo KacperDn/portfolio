@@ -50,7 +50,7 @@ export function useScrollMotion() {
         const words = splitWords(el)
         gsap.fromTo(
           words,
-          { opacity: 0.2 },
+          { opacity: 0.55 },
           {
             opacity: 1,
             ease: 'none',
