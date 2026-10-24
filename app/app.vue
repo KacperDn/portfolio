@@ -24,5 +24,7 @@ useLenis()
       <JourneySection />
     </StoryFlow>
     <ProjectsSection />
+    <ContactSection />
   </main>
+  <SiteFooter />
 </template>
