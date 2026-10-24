@@ -1,8 +1,22 @@
+<script setup lang="ts">
+const letters = Array.from('KacperDn')
+
+const hero = useTemplateRef<HTMLElement>('hero')
+const mask = useTemplateRef<HTMLElement>('mask')
+const subline = useTemplateRef<HTMLElement>('subline')
+
+useHeroMotion({ hero, mask, subline })
+</script>
+
 <template>
-  <section id="top" class="hero" aria-labelledby="hero-title">
-    <h1 id="hero-title" class="hero__name">KacperDn</h1>
+  <section id="top" ref="hero" class="hero" aria-labelledby="hero-title">
+    <h1 id="hero-title" class="hero__name" aria-label="KacperDn">
+      <span ref="mask" class="hero__mask" aria-hidden="true">
+        <span v-for="(letter, i) in letters" :key="i" class="hero__char"><span class="hero__glyph">{{ letter }}</span></span>
+      </span>
+    </h1>
     <div class="hero__row">
-      <p class="hero__subline">
+      <p ref="subline" class="hero__subline">
         Fullstack developer. I build backends in Symfony and interfaces in Vue.
       </p>
     </div>
@@ -26,6 +40,25 @@
   font-stretch: 75%;
   line-height: 0.82;
   letter-spacing: -0.02em;
+  pointer-events: none;
+}
+
+.hero__mask {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  padding: 0.06em 0 0.04em;
+  margin: -0.06em 0 -0.04em;
+  white-space: nowrap;
+}
+
+.hero__char {
+  display: inline-block;
+  text-align: center;
+}
+
+.hero__glyph {
+  display: inline-block;
 }
 
 .hero__row {
@@ -37,5 +70,15 @@
   font-size: var(--step-2);
   line-height: 1.3;
   max-width: 32ch;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .js .hero__char {
+    opacity: 0;
+  }
+
+  .js .hero__subline {
+    opacity: 0;
+  }
 }
 </style>

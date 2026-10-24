@@ -11,7 +11,17 @@ useSeoMeta({
   twitterCard: 'summary_large_image'
 })
 
+useHead({
+  script: [
+    {
+      innerHTML:
+        "document.documentElement.classList.add('js');setTimeout(function(){document.documentElement.classList.remove('js')},6000)"
+    }
+  ]
+})
+
 useLenis()
+useScrollMotion()
 </script>
 
 <template>
