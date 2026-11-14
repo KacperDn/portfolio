@@ -77,9 +77,4 @@ The workflow in `.github/workflows/nuxtjs.yml` runs `npm run generate` on every 
 
 - The code works at the root of any domain. Under a subpath (for example `user.github.io/portfolio/`) it would need `app.baseURL`, and the favicon and OG image links in `nuxt.config.ts` and `app/app.vue` would need the base path too.
 - `og:image` and `og:url` need absolute URLs for social previews. `og:image` is currently `/og.png`.
-
-## TODO
-
-- Email in `app/data/contact.ts`. Entries with an empty `href` are hidden, so fill it in to show it (GitHub is taken from the Moneta repository; check it).
-- Absolute `og:url`, `og:image` and a canonical link for the live domain.
-- Check with the artist that her paintings may appear in the elzbietagrel.pl screenshot.
+- `npm run generate` produces static files that any static host can serve.
