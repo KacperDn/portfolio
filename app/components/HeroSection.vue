@@ -29,12 +29,6 @@ const flanks = [
       </div>
     </div>
 
-    <div class="hero__rest">
-      <a class="hero__down" href="#about" aria-label="Scroll down">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
-      </a>
-    </div>
-
     <aside
       v-for="flank in flanks"
       :key="flank.side"
@@ -103,67 +97,13 @@ const flanks = [
   margin-top: 1rem;
 }
 
-.hero__down {
-  display: grid;
-  place-items: center;
-  width: 2.75rem;
-  height: 2.75rem;
-  border: 1px solid var(--line);
-  border-radius: 50%;
-  background: color-mix(in srgb, var(--text) 4%, transparent);
-  color: var(--dim);
-  transition:
-    border-color 0.2s,
-    color 0.2s;
-}
-
-.hero__down:hover {
-  border-color: var(--accent);
-  color: var(--accent);
-}
-
-.hero__down svg {
-  width: 1.25rem;
-  height: 1.25rem;
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 2;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-
 .hero__flank {
   display: none;
-}
-
-@media (max-width: 47.99rem) {
-  .hero {
-    justify-content: flex-start;
-    padding-bottom: 4.375rem;
-  }
-
-  .hero::before {
-    content: '';
-    flex: 1 1 0;
-  }
-
-  .hero__rest {
-    display: grid;
-    flex: 1 1 0;
-    min-height: 4.5rem;
-    place-items: center;
-  }
 }
 
 @media (max-width: 39.99rem) {
   .hero__visual {
     height: min(32svh, 18rem);
-  }
-}
-
-@media (min-width: 48rem) {
-  .hero__rest {
-    display: none;
   }
 }
 
@@ -196,7 +136,6 @@ const flanks = [
 @media (prefers-reduced-motion: no-preference) {
   .hero__visual,
   .hero__copy > *,
-  .hero__down,
   .hero__flank {
     animation: rise 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both;
   }
@@ -217,13 +156,8 @@ const flanks = [
     animation-delay: 0.45s;
   }
 
-  .hero__down,
   .hero__flank {
     animation-delay: 0.6s;
-  }
-
-  .hero__down svg {
-    animation: bob 2.4s ease-in-out 1.6s infinite;
   }
 }
 
@@ -231,12 +165,6 @@ const flanks = [
   from {
     opacity: 0;
     transform: translateY(14px);
-  }
-}
-
-@keyframes bob {
-  50% {
-    transform: translateY(3px);
   }
 }
 </style>

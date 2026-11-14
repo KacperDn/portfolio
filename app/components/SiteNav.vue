@@ -70,7 +70,8 @@ const active = useActiveSection(['top', ...links.map((link) => link.id)])
   transform: translateY(-50%);
 }
 
-.nav__logo:hover {
+.nav__logo:hover,
+.nav__logo.is-active {
   color: var(--accent);
 }
 

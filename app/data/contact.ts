@@ -11,7 +11,7 @@ export const contactLinks: ContactLink[] = [
   { label: 'GitHub', text: 'KacperDn', href: 'https://github.com/KacperDn' },
   {
     label: 'LinkedIn',
-    text: 'kacper-daniluk',
+    text: 'Kacper Daniluk',
     href: 'https://www.linkedin.com/in/kacper-daniluk-301661397/'
   }
 ]
