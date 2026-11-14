@@ -6,7 +6,14 @@
 
 html {
   background: var(--ink);
+  color-scheme: dark;
   -webkit-text-size-adjust: 100%;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
 }
 
 body {
@@ -14,43 +21,44 @@ body {
   min-height: 100svh;
   background: var(--ink);
   color: var(--text);
-  font-family: var(--font-body);
-  font-size: var(--step-0);
-  line-height: var(--leading-body);
-  font-optical-sizing: auto;
-  text-rendering: optimizeLegibility;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
 h1,
 h2,
 h3 {
   margin: 0;
-  font-family: var(--font-display);
-  font-weight: 700;
-  line-height: var(--leading-display);
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
   text-wrap: balance;
 }
 
 h2 {
-  font-size: var(--step-3);
-  letter-spacing: -0.02em;
+  font-size: clamp(1.75rem, 1.2rem + 2vw, 2.75rem);
+}
+
+h3 {
+  font-size: 1.25rem;
 }
 
 p {
   margin: 0;
-  max-width: var(--measure);
   text-wrap: pretty;
 }
 
-p + p {
-  margin-top: 1.1em;
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 a {
-  color: var(--text);
-  text-decoration-color: var(--accent);
-  text-decoration-thickness: 2px;
+  color: inherit;
   text-underline-offset: 0.2em;
   transition: color 0.2s;
 }
@@ -62,6 +70,7 @@ a:hover {
 :focus-visible {
   outline: var(--focus-ring);
   outline-offset: 3px;
+  border-radius: 4px;
 }
 
 ::selection {
@@ -71,16 +80,16 @@ a:hover {
 
 .skip-link {
   position: absolute;
-  top: 0;
+  top: 0.75rem;
   left: var(--gutter);
-  z-index: 20;
-  padding: 0.5rem 0.9rem;
+  z-index: 30;
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
   background: var(--accent);
   color: var(--ink);
-  font-family: var(--font-display);
   font-weight: 600;
   text-decoration: none;
-  transform: translateY(-120%);
+  transform: translateY(-200%);
 }
 
 .skip-link:focus-visible {
@@ -94,4 +103,50 @@ a:hover {
   overflow: hidden;
   clip-path: inset(50%);
   white-space: nowrap;
+}
+
+.label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--dim);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.7rem 1.35rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font-weight: 500;
+  text-decoration: none;
+  transition:
+    background 0.2s,
+    border-color 0.2s,
+    color 0.2s;
+}
+
+.btn--solid {
+  border-color: var(--text);
+  background: var(--text);
+  color: var(--ink);
+}
+
+.btn--solid:hover {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: var(--ink);
+}
+
+.btn--ghost {
+  background: color-mix(in srgb, var(--text) 4%, transparent);
+}
+
+.btn--ghost:hover {
+  border-color: var(--accent);
+  color: var(--accent);
 }

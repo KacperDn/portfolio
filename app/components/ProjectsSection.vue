@@ -3,17 +3,30 @@ import { projects } from '~/data/projects'
 </script>
 
 <template>
-  <section id="projects" class="sheet rule-top" aria-labelledby="projects-title">
-    <h2 id="projects-title" class="sheet__label" data-mask>Projects</h2>
-    <div class="sheet__body projects">
-      <ProjectStop v-for="project in projects" :key="project.id" :project="project" />
+  <section id="works" class="section" aria-labelledby="works-title">
+    <div class="container">
+      <h2 id="works-title" class="section__title">Projects</h2>
+      <div class="works">
+        <ProjectCard
+          v-for="(project, index) in projects"
+          :key="project.id"
+          :project="project"
+          :style="{ '--delay': `${index * 90}ms` }"
+        />
+      </div>
     </div>
   </section>
 </template>
 
 <style scoped>
-.projects {
+.works {
   display: grid;
-  gap: clamp(3rem, 7vw, 6rem);
+  gap: 1.25rem;
+}
+
+@media (min-width: 56rem) {
+  .works {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 </style>

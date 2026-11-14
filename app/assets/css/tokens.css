@@ -1,34 +1,17 @@
 :root {
   --ink: #091011;
-  --panel: #111b1c;
-  --line: #213234;
+  --card: #112123;
+  --line: #2c4649;
   --text: #e6f0ee;
   --dim: #9bb0ae;
   --accent: #2ee6d6;
 
-  --font-display: 'Geist Variable', system-ui, sans-serif;
-  --font-body: 'Newsreader Variable', Georgia, serif;
+  --font-sans: 'Geist Variable', system-ui, sans-serif;
+  --font-mono: 'Geist Mono Variable', ui-monospace, monospace;
 
-  --step--1: 0.9375rem;
-  --step-0: 1.125rem;
-  --step-1: 1.375rem;
-  --step-2: 1.875rem;
-  --step-3: clamp(2.25rem, 1.6rem + 2.4vw, 3.25rem);
-  --step-4: clamp(1.75rem, 0.8rem + 3.2vw, 3.25rem);
-  --step-hero: clamp(3.5rem, 9.7vw, 12rem);
-
-  --leading-body: 1.65;
-  --leading-display: 1;
-  --measure: 65ch;
-
-  --gutter: clamp(1.25rem, 4vw, 3rem);
-  --section-gap: clamp(4.5rem, 9vw, 8rem);
-  --header-height: 3.5rem;
+  --radius: 1.25rem;
+  --gutter: clamp(1.25rem, 4vw, 2.5rem);
+  --page: 75rem;
+  --section-gap: clamp(5rem, 11vw, 9rem);
   --focus-ring: 2px solid var(--accent);
-}
-
-@media (max-width: 63.99rem) {
-  :root {
-    --step-hero: calc((100vw - 2 * var(--gutter)) / 4.8);
-  }
 }

@@ -8,6 +8,5 @@ export interface ContactLink {
 
 export const contactLinks: ContactLink[] = [
   { label: 'Email', text: '', href: '' },
-  { label: 'GitHub', text: 'github.com/KacperDn', href: 'https://github.com/KacperDn' },
-  { label: 'LinkedIn', text: '', href: '' }
+  { label: 'GitHub', text: 'KacperDn', href: 'https://github.com/KacperDn' }
 ]

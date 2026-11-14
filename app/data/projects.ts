@@ -1,16 +1,10 @@
-import elzbietaMp4 from '~/assets/media/elzbietagrel/screen.mp4'
-import elzbietaWebm from '~/assets/media/elzbietagrel/screen.webm'
-import elzbietaPoster from '~/assets/media/elzbietagrel/poster.jpg'
-import monetaMp4 from '~/assets/media/moneta/demo.mp4'
-import monetaWebm from '~/assets/media/moneta/demo.webm'
-import monetaPoster from '~/assets/media/moneta/poster.jpg'
+import elzbietaShot from '~/assets/media/elzbietagrel/screenshot.webp'
+import monetaShot from '~/assets/media/moneta/screenshot.webp'
 
-export interface ProjectMedia {
-  poster: string
-  webm: string
-  mp4: string
-  /** Describes the recording for people who cannot see it. */
-  description: string
+export interface ProjectShot {
+  src: string
+  /** Describes the screenshot for people who cannot see it. */
+  alt: string
 }
 
 export interface Project {
@@ -22,7 +16,7 @@ export interface Project {
   /** Optional second paragraph. */
   detail?: string
   links: { label: string; href: string }[]
-  media: ProjectMedia
+  screenshot: ProjectShot
 }
 
 export const projects: Project[] = [
@@ -37,11 +31,9 @@ export const projects: Project[] = [
       { label: 'Live demo', href: 'https://kacperdn.github.io/moneta/' },
       { label: 'Source', href: 'https://github.com/KacperDn/moneta' }
     ],
-    media: {
-      poster: monetaPoster,
-      webm: monetaWebm,
-      mp4: monetaMp4,
-      description: 'Screen recording of the Moneta landing page scrolling from top to bottom.'
+    screenshot: {
+      src: monetaShot,
+      alt: 'The Moneta landing page: a headline about seeing where your money goes, next to a spending chart.'
     }
   },
   {
@@ -50,11 +42,9 @@ export const projects: Project[] = [
     address: 'elzbietagrel.pl',
     summary: 'A WordPress site for an artist. Live.',
     links: [{ label: 'elzbietagrel.pl', href: 'https://elzbietagrel.pl' }],
-    media: {
-      poster: elzbietaPoster,
-      webm: elzbietaWebm,
-      mp4: elzbietaMp4,
-      description: 'Screen recording of the elzbietagrel.pl homepage scrolling from top to bottom.'
+    screenshot: {
+      src: elzbietaShot,
+      alt: 'The elzbietagrel.pl homepage: a watercolor of cranes among reeds with the headline Malarstwo które zatrzymuje czas.'
     }
   }
 ]

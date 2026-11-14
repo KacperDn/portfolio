@@ -11,29 +11,20 @@ useSeoMeta({
   twitterCard: 'summary_large_image'
 })
 
-useHead({
-  script: [
-    {
-      innerHTML:
-        "document.documentElement.classList.add('js');setTimeout(function(){document.documentElement.classList.remove('js')},6000)"
-    }
-  ]
-})
-
-useLenis()
-useScrollMotion()
+useReveal()
+useSpotlight()
 </script>
 
 <template>
   <NuxtRouteAnnouncer />
   <a class="skip-link" href="#main">Skip to content</a>
-  <SiteHeader />
   <main id="main">
     <HeroSection />
-    <StackMarquee />
     <AboutSection />
+    <StackSection />
     <ProjectsSection />
     <ContactSection />
   </main>
   <SiteFooter />
+  <SiteNav />
 </template>

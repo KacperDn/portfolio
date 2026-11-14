@@ -20,50 +20,55 @@ const rows = [
 </script>
 
 <template>
-  <section id="about" class="sheet rule-top" aria-labelledby="about-title">
-    <h2 id="about-title" class="sheet__label" data-mask>About</h2>
-    <div class="sheet__body">
-      <p class="about__lead" data-words>I'm 20, a fullstack developer and a computer science student.</p>
-      <div class="about__rows">
-        <div v-for="row in rows" :key="row.title" class="about__row rule-top">
-          <h3>{{ row.title }}</h3>
-          <p data-words>{{ row.text }}</p>
+  <section id="about" class="section" aria-labelledby="about-title">
+    <div class="container">
+      <h2 id="about-title" class="about__lead">I'm 20, a fullstack developer and a computer science student.</h2>
+      <dl class="about__rows">
+        <div v-for="row in rows" :key="row.title" class="about__row" data-reveal>
+          <dt>{{ row.title }}</dt>
+          <dd>{{ row.text }}</dd>
         </div>
-      </div>
+      </dl>
     </div>
   </section>
 </template>
 
 <style scoped>
 .about__lead {
-  max-width: 24ch;
-  font-size: var(--step-3);
-  line-height: 1.15;
-  letter-spacing: -0.01em;
+  max-width: 22ch;
+  font-size: clamp(2rem, 1.2rem + 3vw, 3.5rem);
+  line-height: 1.05;
 }
 
 .about__rows {
-  margin-top: clamp(2.5rem, 6vw, 4.5rem);
+  margin: clamp(2.5rem, 6vw, 4.5rem) 0 0;
 }
 
 .about__row {
   display: grid;
   gap: 0.5rem 2rem;
-  padding: 1.25rem 0 1.5rem;
+  padding: 1.5rem 0;
+  border-top: 1px solid var(--line);
 }
 
 .about__row:last-child {
   border-bottom: 1px solid var(--line);
 }
 
-.about__row h3 {
-  font-size: var(--step-1);
-  letter-spacing: -0.01em;
+.about__row dt {
+  font-weight: 600;
+}
+
+.about__row dd {
+  max-width: 60ch;
+  margin: 0;
+  font-size: 1.125rem;
+  color: var(--dim);
 }
 
 @media (min-width: 48rem) {
   .about__row {
-    grid-template-columns: 9rem minmax(0, 1fr);
+    grid-template-columns: 14rem minmax(0, 1fr);
   }
 }
 </style>
