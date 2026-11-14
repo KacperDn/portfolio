@@ -11,6 +11,9 @@ const active = useActiveSection(['top', ...links.map((link) => link.id)])
 
 <template>
   <nav class="nav" aria-label="Sections">
+    <a class="nav__logo" :class="{ 'is-active': active === 'top' }" href="#top" aria-label="Back to the top">
+      <LogoMark />
+    </a>
     <ul class="nav__list">
       <li v-for="link in links" :key="link.id">
         <a
@@ -42,6 +45,37 @@ const active = useActiveSection(['top', ...links.map((link) => link.id)])
   box-shadow: 0 12px 40px rgb(0 0 0 / 0.45);
   backdrop-filter: blur(16px);
   transform: translateX(-50%);
+}
+
+.nav__logo {
+  position: relative;
+  display: flex;
+  flex: none;
+  align-items: center;
+  height: 2.5rem;
+  margin-right: 0.35rem;
+  padding: 0 1rem 0 0.9rem;
+  color: var(--text);
+  transition: color 0.2s;
+}
+
+.nav__logo::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 1px;
+  height: 1.25rem;
+  background: var(--line);
+  transform: translateY(-50%);
+}
+
+.nav__logo:hover {
+  color: var(--accent);
+}
+
+.nav__logo.is-active :deep(.logo__dot) {
+  filter: drop-shadow(0 0 5px var(--accent));
 }
 
 .nav__list {
@@ -91,6 +125,15 @@ const active = useActiveSection(['top', ...links.map((link) => link.id)])
 }
 
 @media (max-width: 29.99rem) {
+  .nav__logo {
+    margin-right: 0.2rem;
+    padding: 0 0.7rem 0 0.6rem;
+  }
+
+  .nav__logo :deep(.logo) {
+    height: 1.05rem;
+  }
+
   .nav__link {
     padding: 0.5rem 0.5rem 0.5rem 1.05rem;
     font-size: 0.8125rem;
@@ -102,6 +145,14 @@ const active = useActiveSection(['top', ...links.map((link) => link.id)])
 }
 
 @media (max-width: 22.5rem) {
+  .nav__logo {
+    padding: 0 0.5rem 0 0.4rem;
+  }
+
+  .nav__logo :deep(.logo) {
+    height: 0.95rem;
+  }
+
   .nav__link {
     padding: 0.5rem 0.35rem 0.5rem 0.9rem;
     font-size: 0.75rem;
