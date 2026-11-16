@@ -1,4 +1,7 @@
 <script setup lang="ts">
+const { siteUrl } = useRuntimeConfig().public
+
+useHead({ link: [{ rel: 'canonical', href: `${siteUrl}/` }] })
 useSeoMeta({
   title: 'KacperDn | Fullstack developer',
   description:
@@ -6,7 +9,8 @@ useSeoMeta({
   ogTitle: 'KacperDn | Fullstack developer',
   ogDescription:
     'Fullstack developer. I build backends in Symfony and interfaces in Vue.',
-  ogImage: '/og.png',
+  ogImage: `${siteUrl}/og.png`,
+  ogUrl: `${siteUrl}/`,
   ogType: 'website',
   twitterCard: 'summary_large_image'
 })

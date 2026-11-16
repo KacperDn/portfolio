@@ -2,6 +2,12 @@ export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: false },
   typescript: { strict: true },
+  runtimeConfig: {
+    public: {
+      /** Absolute address of the live site: social previews and the canonical link need it. */
+      siteUrl: 'https://kacperdn.dev'
+    }
+  },
   hooks: {
     /** Nothing here needs to be fetched ahead of use: screenshots load lazily and the error pages are rarely seen. */
     'build:manifest': (manifest) => {

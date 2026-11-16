@@ -2,7 +2,7 @@
 const links = [
   { id: 'about', label: 'About' },
   { id: 'stack', label: 'Stack' },
-  { id: 'works', label: 'Works' },
+  { id: 'projects', label: 'Projects' },
   { id: 'contact', label: 'Contact' }
 ]
 
@@ -152,6 +152,10 @@ const active = useActiveSection(['top', ...links.map((link) => link.id)])
 
   .nav__logo :deep(.logo) {
     height: 0.95rem;
+  }
+
+  .nav__list {
+    gap: 0;
   }
 
   .nav__link {

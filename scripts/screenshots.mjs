@@ -17,7 +17,7 @@ for (const { name, width, height } of viewports) {
   await page.waitForTimeout(2000)
   await page.screenshot({ path: `${out}/${name}-hero.png` })
 
-  for (const id of ['about', 'stack', 'works', 'contact']) {
+  for (const id of ['about', 'stack', 'projects', 'contact']) {
     await page.evaluate((target) => document.getElementById(target).scrollIntoView(), id)
     await page.waitForTimeout(1200)
     await page.screenshot({ path: `${out}/${name}-${id}.png` })
