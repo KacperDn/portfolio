@@ -1,10 +1,11 @@
+import capacitor from 'devicon/icons/capacitor/capacitor-plain.svg?raw'
 import java from 'devicon/icons/java/java-plain.svg?raw'
 import javascript from 'devicon/icons/javascript/javascript-plain.svg?raw'
 import php from 'devicon/icons/php/php-plain.svg?raw'
 import postgresql from 'devicon/icons/postgresql/postgresql-plain.svg?raw'
 import react from 'devicon/icons/react/react-original.svg?raw'
 import sass from 'devicon/icons/sass/sass-original.svg?raw'
-import supabase from 'devicon/icons/supabase/supabase-plain.svg?raw'
+import sqlite from 'devicon/icons/sqlite/sqlite-plain.svg?raw'
 import symfony from 'devicon/icons/symfony/symfony-original.svg?raw'
 import typescript from 'devicon/icons/typescript/typescript-plain.svg?raw'
 import vue from 'devicon/icons/vuejs/vuejs-plain.svg?raw'
@@ -44,7 +45,8 @@ export const stack: StackGroup[] = [
       { name: 'TypeScript', svg: mono(typescript) },
       { name: 'JavaScript', svg: mono(javascript) },
       { name: 'React', svg: mono(react) },
-      { name: 'SCSS', svg: mono(sass) }
+      { name: 'SCSS', svg: mono(sass) },
+      { name: 'Capacitor', svg: mono(capacitor) }
     ]
   },
   {
@@ -52,7 +54,7 @@ export const stack: StackGroup[] = [
     items: [
       { name: 'PostgreSQL', svg: mono(postgresql) },
       { name: 'SQL', svg: sql },
-      { name: 'Supabase', svg: mono(supabase) }
+      { name: 'SQLite', svg: mono(sqlite) }
     ]
   },
   {
