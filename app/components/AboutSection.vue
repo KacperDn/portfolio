@@ -28,6 +28,10 @@ const rows = [
           <dt>{{ row.title }}</dt>
           <dd>{{ row.text }}</dd>
         </div>
+        <div class="about__row" data-reveal>
+          <dt>Activity</dt>
+          <dd><ActivityGraph /></dd>
+        </div>
       </dl>
     </div>
   </section>
