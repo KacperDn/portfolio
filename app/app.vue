@@ -24,9 +24,12 @@ useSpotlight()
   <a class="skip-link" href="#main">Skip to content</a>
   <main id="main">
     <HeroSection />
+    <NebulaBand ufo />
     <AboutSection />
+    <NebulaBand :seed="23" below />
     <StackSection />
     <ProjectsSection />
+    <NebulaBand :seed="41" below />
     <ContactSection />
   </main>
   <SiteFooter />

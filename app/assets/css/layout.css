@@ -6,6 +6,8 @@
 }
 
 .section {
+  /* positioned, so sections paint above the nebula that hangs over the hero seam */
+  position: relative;
   padding-top: var(--section-gap);
   scroll-margin-top: 2rem;
 }

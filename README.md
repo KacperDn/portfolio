@@ -1,6 +1,6 @@
 # Portfolio
 
-Personal portfolio of KacperDn, a fullstack developer. One page: a hero with a glowing dotted orb and a starfield, then About, Stack, Projects and Contact, with a floating pill navigation at the bottom. Dark, with one aqua accent. About and Stack are ruled rows; projects and contact are rounded cards.
+Personal portfolio of KacperDn, a fullstack developer. One page: a hero with a glowing dotted orb and a starfield, soft nebula clouds between the sections, then About, Stack, Projects and Contact, with a floating pill navigation at the bottom. Dark, with one aqua accent. About and Stack are ruled rows; projects and contact are rounded cards.
 
 ## Stack
 
@@ -29,13 +29,15 @@ Personal portfolio of KacperDn, a fullstack developer. One page: a hero with a g
 | `app/assets/css/tokens.css` | Colors, fonts, radius, spacing |
 | `app/assets/css/base.css` | Reset, links, buttons, labels, focus ring |
 | `app/assets/css/layout.css` | Container, sections, cards, reveal rules |
-| `app/components/HeroSection.vue`, `OrbCanvas.vue`, `StarField.vue` | Hero (name, buttons, Backend and Frontend lists in the corners on wide screens), the dotted orb and the starfield, both drawn on canvases |
+| `app/components/HeroSection.vue`, `HeroName.vue`, `OrbCanvas.vue`, `StarField.vue` | Hero (name, buttons, Backend and Frontend lists in the corners on wide screens), the dotted orb and the starfield, both drawn on canvases |
+| `app/components/NebulaBand.vue` | The soft clouds between sections (and the UFO in the first one), drawn as fractal noise on a small canvas |
 | `app/components/SiteNav.vue`, `LogoMark.vue` | Floating pill navigation; the logo (letters outlined from Geist) scrolls back to the top |
 | `app/components/AboutSection.vue`, `ActivityGraph.vue` | About: a lead, four ruled rows and a GitHub activity row (the last 26 weeks as dots) |
 | `app/components/StackSection.vue` | Stack: ruled rows with icons |
 | `app/components/ProjectsSection.vue`, `ProjectCard.vue` | Projects |
 | `app/components/ContactSection.vue`, `SiteFooter.vue` | Contact and footer |
 | `app/composables/` | `useReveal`, `useSpotlight`, `useActiveSection` |
+| `app/utils/seeded.ts` | Seeded random generator, so the orb's craters and the nebulae look the same on every visit |
 | `app/data/projects.ts` | Project copy, links and screenshots |
 | `app/data/stack.ts` | Stack groups and their icons |
 | `app/data/contact.ts` | Email, GitHub and LinkedIn (`text` is what the button shows, `href` where it goes) |
@@ -52,11 +54,13 @@ The logo (`LogoMark.vue`) and `public/favicon.svg` are the letters D and n taken
 
 Everything is optional and switched off under `prefers-reduced-motion`; the page stays complete without it.
 
-- **Orb** (`OrbCanvas`): about 4,600 dots on a sphere (2,200 on small screens) with craters, lit from one side, slowly rotating and tilting with the cursor, plus an orbit ring with a moving dot. It pauses when off screen. Under reduced motion it is drawn once.
+- **Orb** (`OrbCanvas`): about 4,600 dots on a sphere (2,200 on small screens) with craters (a fixed layout, so it is always the same planet), lit from one side, drawn on whole device pixels so no dots flicker, slowly rotating and tilting with the cursor, plus an orbit ring with a moving dot. It pauses when off screen. Under reduced motion it is drawn once.
 - **Starfield** (`StarField`): a few hundred faint stars that twinkle slowly behind the hero, also paused off screen and static under reduced motion.
 - **Reveal** (`useReveal`): cards and rows fade in as they scroll into view. Cards already on screen at load stay put, and nothing is hidden before the script runs.
 - **Spotlight** (`useSpotlight`): a soft aqua highlight follows the pointer inside a card (projects and contact).
 - **Navigation** (`useActiveSection`): marks the section that holds the middle of the viewport.
+- **Nebula** (`NebulaBand`): soft aqua clouds across the seam between the hero and About (with a small UFO that glides about inside it and never leaves) and, in the background, under the seams before Stack and before Contact. Each is drawn once as fractal noise on a small canvas (scaled up and blurred by CSS, a different `seed` for each) and drifts very slowly; under reduced motion nothing drifts and the UFO stays put.
+- **Hero name** (`HeroName`): the heading swaps between `KacperDn` and `Kacper Daniluk` by growing it: the two names share their letters, so the missing ones (space, `a`, `iluk`) open up one after another and the shared letters glide apart, with no blur or swap (CSS only). It shows the full name once shortly after load as a hint, then on mouse hover, or on tap on touch screens (it goes back by itself after a moment). Both names share one grid cell so the layout never moves, and screen readers get only the handle. Under reduced motion the swap is instant.
 - The hero text rises in with a short CSS animation, and anchor links scroll smoothly.
 - The logo in the navigation lights up while the hero is on screen, like on hover.
 
