@@ -38,11 +38,12 @@ function noise(x: number, y: number, z: number) {
 function buildSphere(count: number) {
   const points = new Float32Array(count * 3)
   const tone = new Float32Array(count)
+  const random = seeded(20)
   const craters = Array.from({ length: 16 }, () => {
-    const y = Math.random() * 2 - 1
-    const angle = Math.random() * Math.PI * 2
+    const y = random() * 2 - 1
+    const angle = random() * Math.PI * 2
     const ring = Math.sqrt(1 - y * y)
-    return { x: ring * Math.cos(angle), y, z: ring * Math.sin(angle), radius: 0.12 + Math.random() * 0.22 }
+    return { x: ring * Math.cos(angle), y, z: ring * Math.sin(angle), radius: 0.12 + random() * 0.22 }
   })
 
   for (let i = 0; i < count; i++) {
@@ -113,9 +114,12 @@ onMounted(() => {
       const alpha = (0.1 + lit * 1.0) * (0.45 + 0.55 * tone[i]!) * (depth > 0 ? 1 : 0.4)
       if (alpha < 0.03) continue
 
+      // Positions snap to whole device pixels: a dot at a fractional position is smeared over four
+      // pixels, and on a turning lattice that makes dots flicker between bright and faint.
+      // The size stays smooth, so the shading has no steps.
       const dot = (1.1 + lit * 1.3) * ratio
       ctx.globalAlpha = alpha
-      ctx.fillRect(centerX + rotatedX * radius - dot / 2, centerY - rotatedY * radius - dot / 2, dot, dot)
+      ctx.fillRect(Math.round(centerX + rotatedX * radius - dot / 2), Math.round(centerY - rotatedY * radius - dot / 2), dot, dot)
     }
 
     ctx.save()
