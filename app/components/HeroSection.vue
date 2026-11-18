@@ -18,7 +18,7 @@ const flanks = [
     </div>
 
     <div class="hero__copy">
-      <h1 id="hero-title" class="hero__name">KacperDn</h1>
+      <HeroName id="hero-title" class="hero__name" />
       <p class="label hero__role">Fullstack developer</p>
       <p class="hero__bio">I build backends in Symfony and interfaces in Vue.</p>
       <div class="hero__actions">
