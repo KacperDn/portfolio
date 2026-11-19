@@ -2,9 +2,9 @@
 // "KacperDn" and "Kacper Daniluk" share their letters, so the heading is one row of
 // letters in which the extra ones (" ", "a", "iluk") open up and close again while the
 // shared ones glide apart. Nothing is blurred or swapped: the name simply grows. It
-// runs once shortly after load as a hint, then on hover (mouse) or tap (touch, it goes
-// back by itself). Only the handle is exposed to assistive tech. Under reduced motion
-// the swap is instant.
+// runs once shortly after load as a hint, then on hover (mouse) or on tap (touch: a tap
+// opens the name and the next tap closes it). Only the handle is exposed to assistive
+// tech. Under reduced motion the swap is instant.
 const parts = [
   { char: 'K' },
   { char: 'a' },
@@ -29,7 +29,6 @@ const full = ref(false)
 let hovering = false
 let dead = false
 const timers: ReturnType<typeof setTimeout>[] = []
-let revert: ReturnType<typeof setTimeout> | undefined
 
 function show(open: boolean) {
   if (!dead) full.value = open
@@ -38,7 +37,6 @@ function show(open: boolean) {
 function onEnter(event: PointerEvent) {
   if (event.pointerType !== 'mouse') return
   hovering = true
-  clearTimeout(revert)
   show(true)
 }
 
@@ -48,11 +46,11 @@ function onLeave(event: PointerEvent) {
   show(false)
 }
 
+/** Touch has no hover, so a tap toggles the name and it stays as left. A mouse click does nothing: hover does the job. */
 function onClick(event: MouseEvent) {
   if ((event as PointerEvent).pointerType === 'mouse') return
-  clearTimeout(revert)
-  show(true)
-  revert = setTimeout(() => show(false), 3600)
+  timers.forEach(clearTimeout) // the opening hint must not undo what the visitor just chose
+  show(!full.value)
 }
 
 onMounted(() => {
@@ -65,7 +63,6 @@ onMounted(() => {
 onBeforeUnmount(() => {
   dead = true
   timers.forEach(clearTimeout)
-  clearTimeout(revert)
 })
 </script>
 
